@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-container {
+  width: 600px;
+  height: 600px;
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+.title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.emojy-box {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  justify-items: center;
+  margin-bottom: 50px;
+}
+
+.emojy {
+  font-size: 50px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.3s, background-color 0.3s;
+  height: 100px;
+  width: 100px;
+}
+
+.emojy span {
+  display: block;
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+.emojy:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  transform: scale(1.1);
+}
+
+.iframes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

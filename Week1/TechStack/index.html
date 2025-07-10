@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Tech Stack</title>
+    <script>
+      function dragstartHandler(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+      }
+
+      function dragoverHandler(ev) {
+        ev.preventDefault();
+      }
+
+      function dropHandler(ev) {
+        ev.preventDefault();
+        const data = ev.dataTransfer.getData("text");
+        const dragged = document.getElementById(data);
+        ev.target.appendChild(dragged);
+
+        if (data === "css") {
+          alert("✅ Correct! CSS is for styling.");
+        } else {
+          alert("❌ Try again! That's not the right one.");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header></header>
+    <div class="main-container">
+      <div class="title">Welcome! Test Your Skills!</div>
+
+      <div class="question-container">
+        <div class="question">Q1. Which is used to define styling?</div>
+        <div
+          class="drop-place"
+          ondrop="dropHandler(event)"
+          ondragover="dragoverHandler(event)"
+        ></div>
+
+        <div class="answer-container">
+          <div class="ans">
+            <img
+              id="html"
+              src="html.gif"
+              draggable="true"
+              ondragstart="dragstartHandler(event)"
+              width="69"
+              height="69"
+            />
+          </div>
+          <div class="ans">
+            <img
+              id="css"
+              src="css.gif"
+              draggable="true"
+              ondragstart="dragstartHandler(event)"
+              width="69"
+              height="69"
+            />
+          </div>
+          <div class="ans">
+            <img
+              id="node"
+              src="node.png"
+              draggable="true"
+              ondragstart="dragstartHandler(event)"
+              width="69"
+              height="69"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="vedio">
+        <video width="320" height="240" controls>
+          <source src="LI-lay.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </body>
+</html>

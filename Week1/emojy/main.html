@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emojy FeedBack</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="title">
+        <h1>FeedBack</h1>
+    <h6>Feel Free to Give your Feedback!</h6></div>
+
+      <div class="emojy-box">
+        <div class="emojy">&#128516;
+        </br>
+        <span style="font-size: 1rem;">Excellent</span>
+        </div>
+        <div class="emojy">&#128522;
+             </br>
+        <span style="font-size: 1rem;">Good</span>
+        </div>
+        <div class="emojy">&#128528;
+             </br>
+        <span style="font-size: 1rem;">Medium</span>
+        </div>
+        <div class="emojy">&#128543;
+             </br>
+        <span style="font-size: 1rem;">Poor</span>
+        </div>
+        <div class="emojy">&#128542;
+             </br>
+        <span style="font-size: 1rem;">Very Poor</span>
+        </div>
+      </div>
+
+      <div class="title">
+        <h6>View our Website</h6>
+      </div>
+      <div class="iframes">
+        <iframe src="https://wafi-wahid-uixhot6.gamma.site/" height="200" width="400" title="Iframe Example"></iframe>
+      </div>
+
+    </div>
+     <script>
+      const emojis = document.querySelectorAll('.emojy');
+      emojis.forEach((emoji) => {
+        emoji.addEventListener('click', () => {
+          alert('Thanks for your feedback!');
+        });
+      });
+    </script>
+  </body>
+</html>

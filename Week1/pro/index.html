@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pro Dashboard Replica</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="profile-pic">
+          <img src="/favicon.png" alt="User" />
+        </div>
+        <nav class="nav">
+          <a href="#">☁️ My Cloud</a>
+          <a href="#">📂 Shared Files</a>
+          <a href="#">⭐ Favorites</a>
+          <a href="#">⬆️ Upload Files</a>
+        </nav>
+
+        <div class="bottom-links">
+          <a href="#">⚙️ Settings</a>
+          <a href="#">🚪 Log out</a>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="search">
+          <input type="text" placeholder="Search" />
+        </div>
+
+        <div class="categories">
+          <h3>Categories</h3>
+          <div class="category-list">
+            <div class="category purple">
+              📷 <br />Pictures<br /><span>480 files</span>
+            </div>
+            <div class="category teal">
+              📄 <br />Documents<br /><span>190 files</span>
+            </div>
+            <div class="category pink">
+              🎥 <br />Videos<br /><span>30 files</span>
+            </div>
+            <div class="category blue">
+              🎵 <br />Audio<br /><span>80 files</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="files">
+          <h3>Files</h3>
+          <div class="file-groups">
+            <div class="file-box">
+              📁 <br />Work<br /><span>820 files</span>
+            </div>
+            <div class="file-box">
+              👤 <br />Personal<br /><span>115 files</span>
+            </div>
+            <div class="file-box">
+              🎓 <br />School<br /><span>65 files</span>
+            </div>
+            <div class="file-box">
+              🗃️ <br />Archive<br /><span>21 files</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="recent-files">
+          <h3>Recent Files</h3>
+          <ul>
+            <li><span>📷 IMG_100000</span><span>PNG - 5 MB</span></li>
+            <li><span>🎤 Startup Pitch</span><span>AVI - 105 MB</span></li>
+            <li><span>🎧 Freestyle Beat</span><span>MP3 - 21 MB</span></li>
+            <li><span>📑 Work Proposal</span><span>DOCX - 500 KB</span></li>
+          </ul>
+        </div>
+      </main>
+
+      <!-- Right Panel -->
+      <aside class="right-panel">
+        <div class="upload-box">⬆️ Add new files</div>
+        <div class="storage">
+          <b>Your storage</b>
+          <progress value="75" max="100"></progress>
+          <small>25% left</small>
+        </div>
+        <div class="shared-folders">
+          <b>Your shared folders</b>
+          <ul>
+            <li style="background-color: rgb(192, 144, 236)">
+              📁 Keynote Files
+            </li>
+            <li style="background-color: rgb(246, 169, 224)">
+              📸 Vacation Photos
+            </li>
+            <li style="background-color: rgb(165, 236, 200)">
+              📃 Project Report
+            </li>
+          </ul>
+          <div class="more-box">+ Add More</div>
+        </div>
+      </aside>
+    </div>
+  </body>
+</html>
