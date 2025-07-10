@@ -198,3 +198,116 @@ body {
   border-style: dashed;
   padding: 10px;
 }
+
+/* Animations*/
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.nav a,
+.bottom-links a {
+  /* existing styles... */
+  animation: slideIn 0.4s ease forwards;
+  opacity: 0;
+}
+
+/* Add delay for staggered effect */
+.nav a:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.nav a:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.nav a:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.nav a:nth-child(4) {
+  animation-delay: 0.5s;
+}
+
+.bottom-links a:nth-child(1) {
+  animation-delay: 0.6s;
+}
+.bottom-links a:nth-child(2) {
+  animation-delay: 0.7s;
+}
+
+.category,
+.file-box,
+.recent-files li {
+  animation: fadeUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+/* Optional stagger (or add JS later) */
+.category:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.category:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.category:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.category:nth-child(4) {
+  animation-delay: 0.5s;
+}
+
+.file-box:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.file-box:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.file-box:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.file-box:nth-child(4) {
+  animation-delay: 0.5s;
+}
+
+.recent-files li:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.recent-files li:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.recent-files li:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.recent-files li:nth-child(4) {
+  animation-delay: 0.5s;
+}
+
+.more-box:hover {
+  animation: bounce 0.5s ease;
+  cursor: pointer;
+}
