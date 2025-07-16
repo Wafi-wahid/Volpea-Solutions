@@ -311,3 +311,98 @@ body {
   animation: bounce 0.5s ease;
   cursor: pointer;
 }
+
+/* 📱 Mobile: Stack everything vertically */
+@media (max-width: 768px) {
+  @media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .profile-pic {
+    display: none; /* hide avatar for small view */
+  }
+
+  .nav,
+  .bottom-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .nav a,
+  .bottom-links a {
+    font-size: 13px;
+    padding: 6px 8px;
+    margin: 0;
+  }
+
+  .main-content {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .right-panel {
+    width: 100%;
+    padding: 15px;
+    margin: 0;
+  }
+
+  .category-list,
+  .file-groups {
+    flex-direction: column;
+  }
+
+  .category,
+  .file-box {
+    width: 100%;
+  }
+
+  .recent-files li {
+    flex-direction: column;
+    font-size: 14px;
+    gap: 5px;
+  }
+}
+
+
+/* 💻 Tablet: Adjust proportions */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 20%;
+  }
+
+  .main-content {
+    width: 60%;
+  }
+
+  .right-panel {
+    width: 20%;
+  }
+
+  .category-list,
+  .file-groups {
+    flex-wrap: wrap;
+  }
+
+  .category,
+  .file-box {
+    flex: 0 0 48%;
+    margin-bottom: 10px;
+  }
+
+  .recent-files li {
+    font-size: 14px;
+  }
+}

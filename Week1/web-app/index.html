@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Built CEO - Productivity Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Inter", sans-serif;
+      }
+      body {
+        display: flex;
+        min-height: 100vh;
+        background-color: #f7f9fc;
+        color: #1a1a1a;
+      }
+      aside {
+        width: 100px;
+        background: #ffffff;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-right: 1px solid #eee;
+      }
+      aside button {
+        margin: 1rem 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+      main {
+        flex: 1;
+        padding: 2rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+      .card {
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 16px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+      .card h2 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+      .card p {
+        font-size: 0.85rem;
+        color: #555;
+      }
+      .card input,
+      .card button {
+        margin-top: 1rem;
+        width: 100%;
+        padding: 0.5rem;
+        border: none;
+        border-radius: 8px;
+      }
+      .card input {
+        background: #f0f0f0;
+      }
+      .card button {
+        background: #6366f1;
+        color: white;
+        cursor: pointer;
+      }
+      ul {
+        list-style: disc;
+        margin-left: 1.2rem;
+        margin-top: 1rem;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        aside {
+          width: 100%;
+          flex-direction: row;
+          justify-content: space-around;
+          border-right: none;
+          border-bottom: 1px solid #eee;
+        }
+        main {
+          padding: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <aside>
+      <button title="Tasks">✅ Tasks</button>
+      <button title="Calendar">📅 Calender</button>
+      <button title="Pomodoro">⏱️ Pomodoro</button>
+      <button title="Profile">👤 Profile</button>
+    </aside>
+    <main>
+      <h1>Hi, CEO 🚀 What’s your plan today?</h1>
+      <div class="grid">
+        <div class="card">
+          <h2>Eat That Frog 🐸</h2>
+          <p>Your top priority today</p>
+          <input type="text" placeholder="Enter your #1 task" />
+        </div>
+
+        <div class="card">
+          <h2>Pomodoro Timer 🍅</h2>
+          <p>Stay focused in intervals</p>
+          <button onclick="startPomodoro()">Start Pomodoro</button>
+        </div>
+
+        <div class="card">
+          <h2>Today’s Tasks ✅</h2>
+          <ul>
+            <li>Finish UI design draft</li>
+            <li>30 min reading - Deep Work</li>
+            <li>Prepare client pitch deck</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      function startPomodoro() {
+        alert("Pomodoro started! 25 min focus 💪");
+        // Add real timer logic later
+      }
+    </script>
+  </body>
+</html>
