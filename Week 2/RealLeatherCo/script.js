@@ -1,41 +1,42 @@
-const dropdownButtons = document.querySelectorAll(".dropdown-btn");
-const footerItems = document.querySelectorAll(".footer-item");
-
-dropdownButtons.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const parent = btn.closest(".footer-item");
-    const isActive = parent.classList.contains("active");
-
-    // Close all
-    footerItems.forEach((item) => item.classList.remove("active"));
-
-    // Toggle current
-    if (!isActive) parent.classList.add("active");
-  });
-});
-
-document.querySelectorAll(".close-btn").forEach((close) => {
-  close.addEventListener("click", () => {
-    close.closest(".footer-item").classList.remove("active");
-  });
-});
-document.querySelectorAll(".dropdown-btn").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const parent = btn.closest(".footer-item");
-    parent.classList.toggle("active");
-  });
-});
-
-document.querySelectorAll(".close-btn").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const panel = btn.closest(".footer-item");
-    panel.classList.remove("active");
-  });
-});
-
 const hamburger = document.getElementById("hamburger");
 const navbar = document.querySelector(".navbar");
 
 hamburger.addEventListener("click", () => {
   navbar.classList.toggle("show");
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const track = document.querySelector(".review-track");
+  const dots = document.querySelectorAll(".dot");
+
+  if (!track || dots.length === 0) return;
+
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      const slide = parseInt(dot.getAttribute("data-slide"));
+      const offset = slide * -85; // 80% + 5% margin = 85%
+
+      track.style.transform = `translateX(${offset}%)`;
+
+      // Update dot styles
+      dots.forEach((d) => d.classList.remove("active"));
+      dot.classList.add("active");
+    });
+  });
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  const track = document.querySelector(".review-cards");
+  const dots = document.querySelectorAll(".dot");
+
+  if (!track || dots.length === 0) return;
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      track.style.transform = `translateX(-${index * 100}%)`;
+
+      dots.forEach((d) => d.classList.remove("active"));
+      dot.classList.add("active");
+    });
+  });
 });
