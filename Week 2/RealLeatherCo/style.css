@@ -39,7 +39,6 @@ body {
 }
 
 /*  TODO: Header Section */
-
 .header {
   display: flex;
   align-items: center;
@@ -50,10 +49,10 @@ body {
   top: 0;
   z-index: 999;
   flex-wrap: wrap;
-  padding: 12px 20px;
-  margin: 0 auto;
+  margin-left: 20px;
   width: 100%;
   max-width: 1200px;
+  position: relative;
 }
 
 .logo-block {
@@ -65,8 +64,8 @@ body {
 
 .logo {
   max-width: 100%;
-  height: auto;
-  width: 250px;
+  height: 44px;
+  width: 319px;
 }
 
 .navbar .nav-list {
@@ -79,14 +78,14 @@ body {
 
 .navbar a {
   text-decoration: none;
-  color: #333;
+  color: #000000;
   font-weight: 500;
   font-size: 14px;
   padding: 0 2px 0 4px;
 }
 
 .navbar a:hover {
-  color: #7a4f1c;
+  text-decoration: underline;
 }
 .icons {
   display: flex;
@@ -94,7 +93,6 @@ body {
   align-items: center;
 }
 
-/* Icon size standard */
 .icon {
   width: 23px;
   height: 23px;
@@ -114,7 +112,6 @@ body {
   display: none;
   position: absolute;
   top: 100%;
-  left: 0;
   background: #fff;
   padding: 1rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
@@ -123,14 +120,37 @@ body {
   gap: 2rem;
   flex-wrap: nowrap;
 }
+/* Work Bags Dropdown */
+.workbags .mega-menu {
+  left: -550px;
+  right: -10px;
+}
 
+/* Travel Bags Dropdown */
+.travelbags .mega-menu {
+  left: -620px;
+  right: 0;
+}
+
+/* Accessories Dropdown */
+.accessories .mega-menu {
+  left: -730px;
+  right: auto;
+}
+.mega-content {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
 .dropdown:hover .mega-menu {
   display: flex;
 }
 
 .menu-image img {
-  width: 200px;
-  border-radius: 4px;
+  width: 442px;
+  height: 221px;
 }
 .menu-image p {
   text-align: center;
@@ -140,22 +160,20 @@ body {
 
 .menu-columns {
   display: flex;
-  gap: 2rem;
+  gap: 2.8rem;
+  padding: 10px 40px;
 }
 .menu-columns h4 {
   font-size: 1rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.9rem;
 }
 .menu-columns ul {
   list-style: none;
 }
 .menu-columns li {
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
   font-size: 0.9rem;
   cursor: pointer;
-}
-.menu-columns li:hover {
-  color: #7a4f1c;
 }
 
 /*  TODO: Info Strip */
@@ -220,8 +238,8 @@ body {
 }
 
 .logo-row img {
-  height: 30px;
-  width: 120px; /* fixed width for uniformity */
+  height: 50px;
+  width: 210px; /* fixed width for uniformity */
   padding: 0.5rem;
   object-fit: contain;
   filter: grayscale(100%);
@@ -575,6 +593,74 @@ body {
   width: 625px;
   height: 625px;
   border-radius: 12px;
+}
+
+/* TODO: FAQ Section */
+.faq-section {
+  padding: 4rem 1.5rem;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.faq-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.faq-subtext {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.faq-container {
+  border-top: 1px solid #ddd;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  font-size: 13px;
+  padding: 1rem;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+}
+
+.faq-question::after {
+  content: "›";
+  position: absolute;
+  right: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.faq-question.active::after {
+  transform: rotate(90deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1rem;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.faq-answer a {
+  color: #000;
+}
+.faq-answer.open {
+  padding: 1rem;
+  max-height: 500px;
 }
 
 /*  TODO: Footer */
@@ -1076,5 +1162,17 @@ body {
     width: 90%;
     max-width: 300px;
     margin-top: 1rem;
+  }
+}
+
+/* Faq: Responsive */
+@media (max-width: 600px) {
+  .faq-question {
+    font-size: 0.95rem;
+    padding: 0.9rem;
+  }
+
+  .faq-answer {
+    font-size: 0.9rem;
   }
 }

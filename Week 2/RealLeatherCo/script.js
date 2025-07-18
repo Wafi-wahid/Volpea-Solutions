@@ -1,11 +1,14 @@
-const hamburger = document.getElementById("hamburger");
-const navbar = document.querySelector(".navbar");
+document.addEventListener("DOMContentLoaded", () => {
+  // Hamburger menu
+  const hamburger = document.getElementById("hamburger");
+  const navbar = document.querySelector(".navbar");
 
-hamburger.addEventListener("click", () => {
-  navbar.classList.toggle("show");
-});
+  if (hamburger && navbar) {
+    hamburger.addEventListener("click", () => {
+      navbar.classList.toggle("show");
+    });
+  }
 
-document.addEventListener("DOMContentLoaded", function () {
   const track = document.querySelector(".review-track");
   const dots = document.querySelectorAll(".dot");
 
@@ -23,13 +26,11 @@ document.addEventListener("DOMContentLoaded", function () {
       dot.classList.add("active");
     });
   });
-});
 
-window.addEventListener("DOMContentLoaded", () => {
-  const track = document.querySelector(".review-cards");
-  const dots = document.querySelectorAll(".dot");
+  const track1 = document.querySelector(".review-cards");
+  const dots1 = document.querySelectorAll(".dot");
 
-  if (!track || dots.length === 0) return;
+  if (!track1 || dots1.length === 0) return;
 
   dots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
@@ -37,6 +38,26 @@ window.addEventListener("DOMContentLoaded", () => {
 
       dots.forEach((d) => d.classList.remove("active"));
       dot.classList.add("active");
+    });
+  });
+
+  const questions = document.querySelectorAll(".faq-question");
+
+  questions.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const answer = btn.nextElementSibling;
+
+      // Close all others
+      document.querySelectorAll(".faq-answer").forEach((a) => {
+        if (a !== answer) a.classList.remove("open");
+      });
+      document.querySelectorAll(".faq-question").forEach((q) => {
+        if (q !== btn) q.classList.remove("active");
+      });
+
+      // Toggle current
+      answer.classList.toggle("open");
+      btn.classList.toggle("active");
     });
   });
 });
