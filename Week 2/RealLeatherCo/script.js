@@ -12,34 +12,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const track = document.querySelector(".review-track");
   const dots = document.querySelectorAll(".dot");
 
-  if (!track || dots.length === 0) return;
+  if (track && dots.length > 0) {
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        const slide = parseInt(dot.getAttribute("data-slide"));
+        const offset = slide * -100; // each slide is now 100% width
 
-  dots.forEach((dot) => {
-    dot.addEventListener("click", () => {
-      const slide = parseInt(dot.getAttribute("data-slide"));
-      const offset = slide * -85; // 80% + 5% margin = 85%
+        track.style.transform = `translateX(${offset}%)`;
 
-      track.style.transform = `translateX(${offset}%)`;
-
-      // Update dot styles
-      dots.forEach((d) => d.classList.remove("active"));
-      dot.classList.add("active");
+        dots.forEach((d) => d.classList.remove("active"));
+        dot.classList.add("active");
+      });
     });
-  });
+  }
 
-  const track1 = document.querySelector(".review-cards");
-  const dots1 = document.querySelectorAll(".dot");
+  const testimonialTrack = document.querySelector(".testimonial-track");
+  const testimonialDots = document.querySelectorAll(".testimonial-dot");
 
-  if (!track1 || dots1.length === 0) return;
+  if (testimonialTrack && testimonialDots.length > 0) {
+    // Fix: force reset position
+    testimonialTrack.style.transform = "translateX(0%)";
 
-  dots.forEach((dot, index) => {
-    dot.addEventListener("click", () => {
-      track.style.transform = `translateX(-${index * 100}%)`;
+    testimonialDots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        const offset = index * -100;
+        testimonialTrack.style.transform = `translateX(${offset}%)`;
 
-      dots.forEach((d) => d.classList.remove("active"));
-      dot.classList.add("active");
+        testimonialDots.forEach((d) => d.classList.remove("active"));
+        dot.classList.add("active");
+      });
     });
-  });
+  }
 
   const questions = document.querySelectorAll(".faq-question");
 

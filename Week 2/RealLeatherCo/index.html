@@ -12,7 +12,10 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -194,6 +197,7 @@
         <p class="desktop-info">50,000+ Heirloom Bags Shipped</p>
         <p class="desktop-info">1 Year Warranty & 30 Day Returns</p>
         <p class="desktop-info">Rated 4.8/5 from 1300+ Reviews</p>
+
         <!-- Mobile-only merged version -->
         <p class="mobile-info">50,000+ Heirloom Bags Shipped | Rated 4.8/5</p>
       </div>
@@ -283,7 +287,7 @@
             />
           </div>
         </div>
-
+        <!-- mobile swiper -->
         <div class="review-slider">
           <div class="review-track">
             <div class="review-block slider-card">
@@ -297,7 +301,7 @@
                 class="review-logo"
               />
             </div>
-            <div class="review-block">
+            <div class="review-block slider-card">
               <p>
                 “Bags that age like a fine wine – gaining more character over
                 time.”
@@ -452,7 +456,7 @@
       <!--Customer reviews   -->
       <section class="customer-reviews">
         <div class="slider-wrapper">
-          <div class="review-cards slider-track">
+          <div class="review-cards testimonial-track">
             <div class="review-card">
               <div class="overlay">
                 <img
@@ -525,9 +529,9 @@
         </div>
 
         <div class="slider-dots">
-          <span class="dot active" data-index="0"></span>
-          <span class="dot" data-index="1"></span>
-          <span class="dot" data-index="2"></span>
+          <span class="testimonial-dot active" data-index="0"></span>
+          <span class="testimonial-dot" data-index="1"></span>
+          <span class="testimonial-dot" data-index="2"></span>
         </div>
 
         <button class="read-all-btn">READ ALL OUR REVIEWS</button>

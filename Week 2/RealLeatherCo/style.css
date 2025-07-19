@@ -283,7 +283,6 @@ body {
   padding: 15px;
 }
 
-/* View All Button Styling */
 .view-all-btn {
   background-color: #2e1a15;
   color: #fff;
@@ -450,7 +449,6 @@ body {
   opacity: 0;
 }
 
-/* Hover: Zoom & Swap */
 .product-card:hover .main-img {
   transform: scale(1.05);
   opacity: 0;
@@ -461,7 +459,6 @@ body {
   transform: scale(1.05);
 }
 
-/* Hover: Underline heading */
 .product-card:hover .product-info h4 {
   text-decoration: underline;
 }
@@ -539,6 +536,7 @@ body {
 .slider-wrapper {
   overflow: hidden;
   width: 100%;
+  max-width: 100vw;
 }
 .slider-dots {
   display: none;
@@ -547,14 +545,14 @@ body {
   margin-bottom: 1rem;
 }
 
-.dot {
+.testimonial-dot {
   width: 10px;
   height: 10px;
   background-color: #aaa;
   border-radius: 50%;
   cursor: pointer;
 }
-.dot.active {
+.testimonial-dot.active {
   background-color: #2e1a15;
 }
 
@@ -844,7 +842,7 @@ body {
   margin-bottom: 8px;
 }
 
-/* links and shop and compnay*/
+/* links and shop and company*/
 
 .footer-column h4 {
   margin-bottom: 12px;
@@ -913,7 +911,7 @@ body {
 }
 
 /* FIXME: All Media Queries: */
-/* Announcement */
+/* Announcement Section */
 @media (max-width: 1024px) {
   .announcement-section a {
     font-size: 0.95rem;
@@ -928,7 +926,7 @@ body {
   }
 }
 
-/* Header */
+/* TODO: Header Section */
 @media (max-width: 1024px) {
   .header {
     flex-wrap: wrap;
@@ -1000,7 +998,7 @@ body {
   }
 }
 
-/*Stripe */
+/* TODO: Stripe Section*/
 @media (max-width: 768px) {
   .info-strip {
     justify-content: center;
@@ -1019,7 +1017,7 @@ body {
   }
 }
 
-/* As seen In: Tablet and Below */
+/* TODO: As seen In Section */
 @media (max-width: 1024px) {
   .logo-row img:nth-child(5) {
     display: none;
@@ -1041,7 +1039,7 @@ body {
   }
 }
 
-/* Bag section: Tablet */
+/* TODO:Bag section */
 @media (max-width: 1024px) {
   .bag-card {
     width: calc(33.333% - 1rem);
@@ -1060,7 +1058,7 @@ body {
   }
 }
 
-/* Company Review*/
+/* TODO: Company Review Section*/
 @media (max-width: 1024px) {
   .review-block {
     padding: 5px;
@@ -1074,6 +1072,7 @@ body {
     margin-top: 50px;
   }
 }
+
 @media (max-width: 768px) {
   .review-columns {
     display: none;
@@ -1081,18 +1080,64 @@ body {
 
   .review-slider {
     display: block;
+    overflow: hidden;
+    position: relative;
+    width: 100vw;
+    margin: 0 auto;
+  }
+
+  .review-track {
+    display: flex;
+    transition: transform 0.4s ease;
+    width: 200%; /* two slides */
+  }
+
+  .review-track .review-block {
+    flex: 0 0 100vw; /* full screen width per slide */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 2rem 1.2rem;
+    text-align: center;
+  }
+
+  .review-block p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    width: 287px;
+  }
+
+  .review-logo {
+    height: 50px;
+    object-fit: contain;
+    filter: grayscale(100%);
   }
 
   .dots {
     display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    gap: 8px;
   }
 
-  .review-track {
-    flex-wrap: nowrap;
+  .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .dot.active {
+    background-color: #000;
   }
 }
 
-/* Customer */
+/* TODO: Customer Review Section */
 @media (max-width: 1024px) {
   .review-card {
     width: 300px;
@@ -1107,24 +1152,42 @@ body {
 
 @media (max-width: 768px) {
   .review-cards {
+    display: flex;
     flex-wrap: nowrap;
-    overflow: hidden;
-    width: 300%; /* 3 cards × 100% */
-    transform: translateX(0%);
+    width: 100%;
+    transform: translateX(0);
   }
 
   .review-card {
     flex: 0 0 100%;
-    width: 100%;
     max-width: 100%;
+    box-sizing: border-box;
+    height: 500px;
+  }
+  .slider-wrapper {
+    overflow: hidden;
+    width: 100%;
   }
 
   .slider-dots {
     display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+    gap: 0.5rem;
+  }
+
+  .quote {
+    width: 90%;
+    font-size: 1.2rem;
+  }
+
+  .read-all-btn {
+    width: 100%;
+    max-width: 320px;
   }
 }
 
-/* Info section */
+/* TODO: Company Info section */
 @media (max-width: 1024px) {
   .info-image img {
     width: 100%;
@@ -1168,7 +1231,7 @@ body {
   }
 
   .info-image {
-    order: -1; /* Puts image at top */
+    order: -1;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -1208,7 +1271,7 @@ body {
   }
 }
 
-/* Faq: Responsive */
+/* TODO: Faq Section */
 @media (max-width: 600px) {
   .faq-question {
     font-size: 0.95rem;
