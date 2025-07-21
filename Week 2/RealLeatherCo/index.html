@@ -188,8 +188,160 @@
         <div class="icons">
           <img src="./icons/search-icon.png" class="icon search-icon" />
           <img src="./icons/bag-icon.png" class="icon cart-icon" />
-          <img src="./icons/hamburger-icon.png" class="hamburger-icon" />
+          <img
+            src="./icons/hamburger-icon.png"
+            class="hamburger-icon"
+            id="hamburger"
+          />
+          <img
+            src="./icons/close-icon.png"
+            class="close-icon"
+            id="closeIcon"
+            width="26px"
+            height="26px"
+            style="display: none"
+          />
         </div>
+
+        <!-- Sidebar (mobile menu) -->
+        <aside class="mobile-sidebar" id="mobileSidebar">
+          <input type="text" class="mobile-search" placeholder="Search..." />
+          <ul class="mobile-nav">
+            <li><a href="#">Best Sellers</a></li>
+
+            <li class="sidebar-item">
+              <div class="sidebar-trigger">
+                <span>Work Bags</span>
+                <span class="dropdown-arrow black-arrow"></span>
+              </div>
+             <div class="sidebar-dropdown">
+    <img
+      src="/Week 2/RealLeatherCo/images/workbag1.webp"
+      class="panel-img"
+      alt="Leather Briefcases"
+    />
+    <div class="img-label">Leather Briefcases</div>
+
+    <div class="panel-columns">
+      <div class="panel-col">
+        <h4>Briefcases</h4>
+        <ul>
+          <li>Leather Briefcases</li>
+          <li>Leather Laptop Bags</li>
+          <li>Leather Work Bags</li>
+          <li>Leather Attache Cases</li>
+        </ul>
+      </div>
+      <div class="panel-col">
+        <h4>Messenger Bags</h4>
+        <ul>
+          <li>Leather Messenger Bags</li>
+          <li>Leather Satchel Bags</li>
+        </ul>
+      </div>
+      <div class="panel-col">
+        <h4>Professionals</h4>
+        <ul>
+          <li>Pilot Bags</li>
+          <li>Doctor Bags</li>
+          <li>Teacher Bags</li>
+          <li>Lawyer Bags</li>
+          <li>Photographer Bags</li>
+        </ul>
+      </div>
+      </div>
+            </li>
+
+           <li class="sidebar-item">
+              <div class="sidebar-trigger">
+                <span>Travel Bags</span>
+                <span class="dropdown-arrow black-arrow"></span>
+              </div>
+             <div class="sidebar-dropdown">
+    <img
+      src="/Week 2/RealLeatherCo/images/travelbag.webp"
+      class="panel-img"
+      alt="Leather Briefcases"
+    />
+    <div class="img-label">Leather Backpacks</div>
+
+                  <div class="panel-columns">
+                    <div class="panel-col">
+                      <h4>Backpacks</h4>
+                      <ul>
+                        <li>Leather Backpacks</li>
+                        <li>SchoolBackpacks</li>
+                        <li>College Backpacks</li>
+                      </ul>
+                    </div>
+                    <div class="panel-col">
+                      <h4>Duffles</h4>
+                      <ul>
+                        <li>Leather Duffle Bags</li>
+                        <li>Leather Travel Bags</li>
+                        <li>Leather Luggage</li>
+                      </ul>
+                    </div>
+                    <div class="panel-col">
+                      <h4>Day Bags</h4>
+                      <ul>
+                        <li>Leather Crossbody Bags</li>
+                        <li>Leather Sling Bags</li>
+                        <li>Leather Fanny Bags</li>
+                        <li>Leather Belt Bags</li>
+                        <li>Leather Toiletry Bags</li>
+                      </ul>
+                    </div>
+                  </div>
+            </li>
+            
+             <li class="sidebar-item">
+              <div class="sidebar-trigger">
+                <span>Accessories</span>
+                <span class="dropdown-arrow black-arrow"></span>
+              </div>
+             <div class="sidebar-dropdown">
+    <img
+      src="/Week 2/RealLeatherCo/images/accessories.webp"
+      class="panel-img"
+      alt="Leather Briefcases"
+    />
+    <div class="img-label">Leather Wallets</div>
+
+                <div class="panel-columns">
+                    <div class="panel-col">
+                      <h4>Accessories</h4>
+                      <ul>
+                        <li>ALL Leather Accessories</li>
+                        <li>ALL Leather Goods</li>
+                        <li>Leather Care Items</li>
+                      </ul>
+                    </div>
+                    <div class="panel-col">
+                      <h4>Wallets & Journals</h4>
+                      <ul>
+                        <li>Leather Wallets</li>
+                        <li>Leather Card Holders</li>
+                        <li>Leather Journals</li>
+                      </ul>
+                    </div>
+                    <div class="panel-col">
+                      <h4>Gifts</h4>
+                      <ul>
+                        <li>Gifts for Him</li>
+                        <li>Gifts for Her</li>
+                        <li>Gifts under $100</li>
+                        <li>Gifts $100-$200</li>
+                        <li>Gifts $200+</li>
+                        <li>Gifts Cards</li>
+                      </ul>
+                    </div>
+                </div>
+            </li>
+
+            <li><a href="#">Our Story</a></li>
+          </ul>
+        </aside>
       </div>
 
       <!-- Info Strip -->
@@ -287,10 +439,11 @@
             />
           </div>
         </div>
+
         <!-- mobile swiper -->
-        <div class="review-slider">
-          <div class="review-track">
-            <div class="review-block slider-card">
+        <div class="swiper review-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide review-block">
               <p>
                 “Not just a bag—an heirloom investment in something lasting,
                 personal, and timeless.”
@@ -301,7 +454,7 @@
                 class="review-logo"
               />
             </div>
-            <div class="review-block slider-card">
+            <div class="swiper-slide review-block">
               <p>
                 “Bags that age like a fine wine – gaining more character over
                 time.”
@@ -313,10 +466,7 @@
               />
             </div>
           </div>
-          <div class="dots">
-            <span class="dot active" data-slide="0"></span>
-            <span class="dot" data-slide="1"></span>
-          </div>
+          <div class="swiper-pagination"></div>
         </div>
       </section>
 
@@ -780,14 +930,133 @@
             <h4>Shop</h4>
             <ul>
               <li><a href="#">Best Seller</a></li>
-              <li>
-                <a href="#">Work Bags </a><span class="dropdown-arrow"></span>
+              <li class="footer-item">
+                <div class="footer-trigger">
+                  <a href="#">Work Bags</a>
+                  <span class="dropdown-arrow"></span>
+                </div>
+                <div class="footer-dropdown">
+                  <img
+                    src="/Week 2/RealLeatherCo/images/workbag1.webp"
+                    class="panel-img"
+                  />
+                  <div class="img-label">Leather Briefcases</div>
+
+                  <div class="panel-columns">
+                    <div class="panel-col">
+                      <h4>Briefcases</h4>
+                      <ul>
+                        <li>Leather Briefcases</li>
+                        <li>Leather Laptop Bags</li>
+                        <li>Leather Work Bags</li>
+                        <li>Leather Attache Cases</li>
+                      </ul>
+                    </div>
+                    <div class="panel-col">
+                      <h4>Messenger Bags</h4>
+                      <ul>
+                        <li>Leather Messenger Bags</li>
+                        <li>Leather Satchel Bags</li>
+                      </ul>
+                    </div>
+                    <div class="panel-col">
+                      <h4>Professionals</h4>
+                      <ul>
+                        <li>Pilot Bags</li>
+                        <li>Doctor Bags</li>
+                        <li>Teacher Bags</li>
+                        <li>Lawyer Bags</li>
+                        <li>Photographer Bags</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </li>
-              <li>
-                <a href="#">Travel Bags </a><span class="dropdown-arrow"></span>
+
+              <li class="footer-item">
+                <div class="footer-trigger">
+                  <a href="#">Travel Bags</a>
+                  <span class="dropdown-arrow"></span>
+                </div>
+                <div class="footer-dropdown">
+                  <img
+                    src="/Week 2/RealLeatherCo/images/travelbag.webp"
+                    class="panel-img"
+                  />
+                  <div class="img-label">Leather Backpacks</div>
+
+                  <div class="panel-columns">
+                    <div class="panel-col">
+                      <h4>Backpacks</h4>
+                      <ul>
+                        <li>Leather Backpacks</li>
+                        <li>SchoolBackpacks</li>
+                        <li>College Backpacks</li>
+                      </ul>
+                    </div>
+                    <div class="panel-col">
+                      <h4>Duffles</h4>
+                      <ul>
+                        <li>Leather Duffle Bags</li>
+                        <li>Leather Travel Bags</li>
+                        <li>Leather Luggage</li>
+                      </ul>
+                    </div>
+                    <div class="panel-col">
+                      <h4>Day Bags</h4>
+                      <ul>
+                        <li>Leather Crossbody Bags</li>
+                        <li>Leather Sling Bags</li>
+                        <li>Leather Fanny Bags</li>
+                        <li>Leather Belt Bags</li>
+                        <li>Leather Toiletry Bags</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </li>
-              <li>
-                <a href="#">Accessories </a><span class="dropdown-arrow"></span>
+              <li class="footer-item">
+                <div class="footer-trigger">
+                  <a href="#">Accessories</a>
+                  <span class="dropdown-arrow"></span>
+                </div>
+                <div class="footer-dropdown">
+                  <img
+                    src="/Week 2/RealLeatherCo/images/accessories.webp"
+                    class="panel-img"
+                  />
+                  <div class="img-label">Leather Wallets</div>
+
+                  <div class="panel-columns">
+                    <div class="panel-col">
+                      <h4>Accessories</h4>
+                      <ul>
+                        <li>ALL Leather Accessories</li>
+                        <li>ALL Leather Goods</li>
+                        <li>Leather Care Items</li>
+                      </ul>
+                    </div>
+                    <div class="panel-col">
+                      <h4>Wallets & Journals</h4>
+                      <ul>
+                        <li>Leather Wallets</li>
+                        <li>Leather Card Holders</li>
+                        <li>Leather Journals</li>
+                      </ul>
+                    </div>
+                    <div class="panel-col">
+                      <h4>Gifts</h4>
+                      <ul>
+                        <li>Gifts for Him</li>
+                        <li>Gifts for Her</li>
+                        <li>Gifts under $100</li>
+                        <li>Gifts $100-$200</li>
+                        <li>Gifts $200+</li>
+                        <li>Gifts Cards</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </li>
               <li><a href="#">Our Story</a></li>
             </ul>
@@ -820,6 +1089,32 @@
       </footer>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+      const reviewSwiper = new Swiper(".review-swiper", {
+        loop: false,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        spaceBetween: 20,
+      });
+    </script>
+    <script>
+      document.querySelectorAll(".sidebar-trigger").forEach((trigger) => {
+        trigger.addEventListener("click", () => {
+          const item = trigger.closest(".sidebar-item");
+
+          // Close other open items
+          document.querySelectorAll(".sidebar-item").forEach((el) => {
+            if (el !== item) el.classList.remove("active");
+          });
+
+          item.classList.toggle("active");
+        });
+      });
+    </script>
     <script src="./script.js"></script>
   </body>
 </html>

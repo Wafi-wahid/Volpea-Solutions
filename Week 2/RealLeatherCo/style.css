@@ -91,6 +91,7 @@ body {
   display: flex;
   gap: 1rem;
   align-items: center;
+  margin-right: 10px;
 }
 
 .icon {
@@ -175,7 +176,138 @@ body {
   font-size: 0.9rem;
   cursor: pointer;
 }
+/* Sidebar Layout */
 
+.mobile-sidebar {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%; /* starts below header */
+  left: -20px;
+  width: 90%;
+  background-color: white;
+  border-top: 1px solid #ddd;
+  z-index: 998;
+  padding: 1.5rem;
+}
+
+/* Show sidebar */
+.mobile-sidebar.show {
+  display: flex;
+}
+
+/* Inside Sidebar */
+.mobile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-search {
+  margin: 1.5rem 0;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+.mobile-nav {
+  list-style: none;
+  padding: 0;
+}
+
+.mobile-nav li {
+  padding: 0.75rem 0;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.mobile-nav li a {
+  text-decoration: none;
+  color: #000;
+}
+/* Dropdown animation */
+.sidebar-item {
+  margin-bottom: 16px;
+}
+.sidebar-dropdown {
+  background: #fff;
+  color: #000;
+  border-radius: 8px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+.sidebar-item.active .sidebar-dropdown {
+  max-height: 1200px;
+  padding: 20px;
+}
+.sidebar-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.black-arrow {
+  transition: transform 0.3s ease, border 0.3s ease;
+  transform: rotate(-45deg);
+  width: 8px;
+  height: 8px;
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+  margin-left: 10px;
+}
+
+.sidebar-item.active .black-arrow {
+  transform: rotate(45deg);
+  border-left: 2px solid black;
+  border-top: 2px solid black;
+  border-bottom: none;
+}
+/* Column Layout (reuse from footer) */
+.panel-columns {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.panel-col h4 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.panel-col ul {
+  padding: 0;
+  list-style: none;
+}
+
+.panel-col li {
+  margin-bottom: 8px;
+}
+
+.panel-img {
+  max-width: 100%;
+  margin: 15px 0;
+}
+
+.img-label {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Stack columns on small screens */
+@media (max-width: 600px) {
+  .panel-columns {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
 /*  TODO: Info Strip */
 .info-strip {
   display: flex;
@@ -702,15 +834,6 @@ body {
   padding: 60px 20px 20px;
 }
 
-.dropdown-arrow {
-  display: inline-block;
-  margin-left: 50px;
-  width: 6px;
-  height: 6px;
-  border-left: 2px solid white;
-  border-bottom: 2px solid white;
-  transform: rotate(-45deg);
-}
 .newsletter {
   max-width: 700px;
   margin: 0 auto 40px;
@@ -781,37 +904,29 @@ body {
 .footer-item {
   margin-bottom: 16px;
 }
-
-.footer-item .footer-dropdown {
-  display: none;
-  margin-top: 12px;
-  padding: 20px;
+.footer-dropdown {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
   background: #fff;
   color: #000;
-  border-radius: 8px;
+  margin-top: 10px;
+  padding: 0 20px; /* Only horizontal padding here */
+}
+
+.footer-item .footer-dropdown {
+  background: #fff;
+  color: #000;
 }
 
 .footer-item.active .footer-dropdown {
-  display: block;
-}
-
-.footer-dropdown .dropdown-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.footer-dropdown .close-btn {
-  font-size: 22px;
-  cursor: pointer;
+  max-height: 1200px;
+  padding: 20px;
 }
 
 .footer-dropdown .panel-img {
   max-width: 100%;
   margin: 15px 0;
-  border-radius: 6px;
 }
 
 .footer-dropdown .img-label {
@@ -841,7 +956,36 @@ body {
 .footer-dropdown .panel-col li {
   margin-bottom: 8px;
 }
+.footer-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
 
+.footer-item .dropdown-arrow {
+  transition: transform 0.3s ease, border 0.3s ease;
+  transform: rotate(-45deg);
+  width: 8px;
+  height: 8px;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  margin-left: 10px;
+}
+
+.footer-item.active .dropdown-arrow {
+  transform: rotate(45deg);
+  border-left: 2px solid white;
+  border-top: 2px solid white;
+  border-bottom: none;
+}
+
+@media (max-width: 600px) {
+  .footer-dropdown .panel-columns {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
 /* links and shop and company*/
 
 .footer-column h4 {
@@ -997,6 +1141,16 @@ body {
     width: 180px;
   }
 }
+@media (min-width: 769px) {
+  .mobile-sidebar {
+    display: none;
+  }
+
+  .hamburger-icon,
+  .close-icon {
+    display: none !important;
+  }
+}
 
 /* TODO: Stripe Section*/
 @media (max-width: 768px) {
@@ -1072,34 +1226,23 @@ body {
     margin-top: 50px;
   }
 }
-
 @media (max-width: 768px) {
   .review-columns {
     display: none;
   }
 
-  .review-slider {
-    display: block;
-    overflow: hidden;
-    position: relative;
+  .review-swiper {
     width: 100vw;
-    margin: 0 auto;
+    padding: 1rem;
   }
 
-  .review-track {
-    display: flex;
-    transition: transform 0.4s ease;
-    width: 200%; /* two slides */
-  }
-
-  .review-track .review-block {
-    flex: 0 0 100vw; /* full screen width per slide */
+  .review-block {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    padding: 2rem 1.2rem;
+    padding: 2rem 1rem;
     text-align: center;
   }
 
@@ -1107,7 +1250,8 @@ body {
     font-size: 18px;
     line-height: 1.5;
     margin-bottom: 1rem;
-    width: 287px;
+    width: 90%;
+    max-width: 300px;
   }
 
   .review-logo {
@@ -1116,23 +1260,12 @@ body {
     filter: grayscale(100%);
   }
 
-  .dots {
-    display: flex;
-    justify-content: center;
-    margin-top: 1.5rem;
-    gap: 8px;
-  }
-
-  .dot {
-    width: 10px;
-    height: 10px;
+  .swiper-pagination-bullet {
     background-color: #ccc;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    opacity: 1;
   }
 
-  .dot.active {
+  .swiper-pagination-bullet-active {
     background-color: #000;
   }
 }

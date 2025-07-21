@@ -1,30 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Hamburger menu
   const hamburger = document.getElementById("hamburger");
-  const navbar = document.querySelector(".navbar");
+  const closeIcon = document.getElementById("closeIcon");
+  const mobileSidebar = document.getElementById("mobileSidebar");
 
-  if (hamburger && navbar) {
-    hamburger.addEventListener("click", () => {
-      navbar.classList.toggle("show");
-    });
-  }
+  const toggleSidebar = (show) => {
+    mobileSidebar?.classList.toggle("show", show);
+    hamburger?.style.setProperty("display", show ? "none" : "inline-block");
+    closeIcon?.style.setProperty("display", show ? "inline-block" : "none");
+  };
 
-  const track = document.querySelector(".review-track");
-  const dots = document.querySelectorAll(".dot");
-
-  if (track && dots.length > 0) {
-    dots.forEach((dot) => {
-      dot.addEventListener("click", () => {
-        const slide = parseInt(dot.getAttribute("data-slide"));
-        const offset = slide * -100; // each slide is now 100% width
-
-        track.style.transform = `translateX(${offset}%)`;
-
-        dots.forEach((d) => d.classList.remove("active"));
-        dot.classList.add("active");
-      });
-    });
-  }
+  hamburger?.addEventListener("click", () => toggleSidebar(true));
+  closeIcon?.addEventListener("click", () => toggleSidebar(false));
 
   const testimonialTrack = document.querySelector(".testimonial-track");
   const testimonialDots = document.querySelectorAll(".testimonial-dot");
@@ -62,5 +49,21 @@ document.addEventListener("DOMContentLoaded", () => {
       answer.classList.toggle("open");
       btn.classList.toggle("active");
     });
+  });
+});
+
+const footerTriggers = document.querySelectorAll(".footer-trigger");
+
+footerTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", () => {
+    const item = trigger.closest(".footer-item");
+
+    // Close all other dropdowns
+    document.querySelectorAll(".footer-item").forEach((el) => {
+      if (el !== item) el.classList.remove("active");
+    });
+
+    // Toggle current
+    item.classList.toggle("active");
   });
 });
