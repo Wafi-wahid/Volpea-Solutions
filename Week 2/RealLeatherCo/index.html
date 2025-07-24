@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Real Leather Co.</title>
-    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -16,10 +15,25 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+    <!-- Slick CSS -->
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+/>
+
+<!-- Optional theme -->
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+/>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="main-content">
+
+      <!--Announcement Section-->
       <div class="announcement-section">
         <a href="https://therealleathercompany.com/collections/best-sellers-1">
           20% Off Everything Summer Essentials Sale | Use Code
@@ -27,6 +41,7 @@
         </a>
       </div>
 
+      <!--Header Section-->
       <div class="header">
         <div class="logo-block">
           <img
@@ -90,7 +105,6 @@
               </div>
             </li>
 
-            <!-- Travel Bags -->
             <li class="dropdown travelbags">
               <a href="#">Travel Bags</a>
               <img src="./images/dropdown.png" width="10px" height="10px" />
@@ -135,7 +149,6 @@
               </div>
             </li>
 
-            <!-- Accessories -->
             <li class="dropdown accessories">
               <a href="#">Accessories</a>
               <img src="./images/dropdown.png" width="10px" height="10px" />
@@ -487,7 +500,11 @@
           </div>
           <div class="product-info">
             <h4>The Heritage</h4>
-            <p class="rating">★★★★★ <span>4.9/5 (9)</span></p>
+            <p class="rating "> <i class="fa-solid fa-star"></i>     
+  <i class="fa-solid fa-star"></i>  
+  <i class="fa-solid fa-star"></i>     
+  <i class="fa-solid fa-star"></i>
+  <i class="fa-solid fa-star"></i><span>4.9/5 (9)</span></p>
             <p class="price">$435</p>
           </div>
         </div>
@@ -507,7 +524,11 @@
           </div>
           <div class="product-info">
             <h4>The Skyler</h4>
-            <p class="rating">★★★★☆ <span>4.6/5 (18)</span></p>
+            <p class="rating"><i class="fa-solid fa-star"></i>    
+  <i class="fa-solid fa-star"></i>     
+  <i class="fa-solid fa-star"></i>    
+  <i class="fa-solid fa-star"></i>
+  <i class="fa-solid fa-star-half-stroke"></i><span>4.6/5 (18)</span></p>
             <p class="price">$375</p>
             <div class="swatches">
               <img src="/Week 2/RealLeatherCo/images/pro2.webp" alt="Color 1" />
@@ -531,7 +552,11 @@
           </div>
           <div class="product-info">
             <h4>The Herald</h4>
-            <p class="rating">★★★★★ <span>5.0/5 (3)</span></p>
+            <p class="rating"><i class="fa-solid fa-star"></i>    
+  <i class="fa-solid fa-star"></i>   
+  <i class="fa-solid fa-star"></i>    
+  <i class="fa-solid fa-star"></i>
+  <i class="fa-solid fa-star"></i> <span>5.0/5 (3)</span></p>
             <p class="price">$435</p>
           </div>
         </div>
@@ -551,7 +576,11 @@
           </div>
           <div class="product-info">
             <h4>The Standard</h4>
-            <p class="rating">★★★★★ <span>4.9/5 (9)</span></p>
+            <p class="rating"><i class="fa-solid fa-star"></i>    
+  <i class="fa-solid fa-star"></i>   
+  <i class="fa-solid fa-star"></i>    
+  <i class="fa-solid fa-star"></i>
+  <i class="fa-solid fa-star"></i> <span>4.9/5 (9)</span></p>
             <p class="price">$435</p>
           </div>
         </div>
@@ -571,7 +600,11 @@
           </div>
           <div class="product-info">
             <h4>The Man Bag</h4>
-            <p class="rating">★★★★☆<span>4.6/5 (18)</span></p>
+            <p class="rating"><i class="fa-solid fa-star"></i>    
+  <i class="fa-solid fa-star"></i>   
+  <i class="fa-solid fa-star"></i>    
+  <i class="fa-solid fa-star"></i>
+  <i class="fa-solid fa-star-half-stroke"></i><span>4.6/5 (18)</span></p>
             <p class="price">$375</p>
             <div class="swatches">
               <img src="/Week 2/RealLeatherCo/images/pro5.webp" alt="Color 1" />
@@ -595,7 +628,11 @@
           </div>
           <div class="product-info">
             <h4>The Jones</h4>
-            <p class="rating">★★★★★ <span>5.0/5 (3)</span></p>
+            <p class="rating"><i class="fa-solid fa-star"></i>    
+  <i class="fa-solid fa-star"></i>   
+  <i class="fa-solid fa-star"></i>    
+  <i class="fa-solid fa-star"></i>
+  <i class="fa-solid fa-star"></i> <span>5.0/5 (3)</span></p>
             <p class="price">$435</p>
           </div>
         </div>
@@ -1092,14 +1129,29 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
-      const reviewSwiper = new Swiper(".review-swiper", {
-        loop: false,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        spaceBetween: 20,
-      });
+     let reviewSwiper = null;
+
+function initReviewSwiper() {
+  if (window.innerWidth <= 768 && !reviewSwiper) {
+    reviewSwiper = new Swiper(".review-swiper", {
+      loop: false,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      spaceBetween: 20,
+    });
+  } else if (window.innerWidth > 768 && reviewSwiper) {
+    reviewSwiper.destroy(true, true);
+    reviewSwiper = null;
+  }
+}
+
+// Initialize on load
+window.addEventListener("load", initReviewSwiper);
+
+// Re-initialize on resize
+window.addEventListener("resize", initReviewSwiper);
     </script>
     <script>
       document.querySelectorAll(".sidebar-trigger").forEach((trigger) => {
@@ -1115,6 +1167,11 @@
         });
       });
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+></script>
     <script src="./script.js"></script>
   </body>
 </html>

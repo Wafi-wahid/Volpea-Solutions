@@ -176,8 +176,8 @@ body {
   font-size: 0.9rem;
   cursor: pointer;
 }
-/* Sidebar Layout */
 
+/* Sidebar Layout */
 .mobile-sidebar {
   display: none;
   flex-direction: column;
@@ -189,6 +189,7 @@ body {
   border-top: 1px solid #ddd;
   z-index: 998;
   padding: 1.5rem;
+  height: 800px;
 }
 
 /* Show sidebar */
@@ -197,18 +198,11 @@ body {
 }
 
 /* Inside Sidebar */
-.mobile-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .mobile-search {
-  margin: 1.5rem 0;
   width: 100%;
   padding: 0.6rem 1rem;
   border: 1px solid #ccc;
-  border-radius: 999px;
+  border-radius: 9px;
   font-size: 14px;
 }
 
@@ -219,7 +213,7 @@ body {
 
 .mobile-nav li {
   padding: 0.75rem 0;
-  font-weight: 600;
+  font-weight: bolder;
   font-size: 1.1rem;
   cursor: pointer;
 }
@@ -436,7 +430,6 @@ body {
   background-color: #fff;
 }
 
-/* DESKTOP/TABLET BLOCKS */
 .review-columns {
   display: flex;
   justify-content: center;
@@ -460,44 +453,8 @@ body {
   object-fit: contain;
   filter: grayscale(100%);
 }
-
-/* MOBILE SLIDER */
-.review-slider {
+.swiper {
   display: none;
-  overflow: hidden;
-  position: relative;
-}
-
-.review-track {
-  display: flex;
-  transition: transform 0.4s ease;
-  width: 200%;
-}
-
-.slider-card {
-  flex: 0 0 80%;
-  margin-right: 5%;
-  box-sizing: border-box;
-}
-
-/* Dots */
-.dots {
-  display: none;
-  justify-content: center;
-  margin-top: 1.5rem;
-  gap: 8px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  background-color: #ccc;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.dot.active {
-  background-color: #000;
 }
 
 /*  TODO: Featured Products */
@@ -912,6 +869,10 @@ body {
   color: #000;
   margin-top: 10px;
   padding: 0 20px; /* Only horizontal padding here */
+  max-width: 375px;
+  width: 100%;
+  margin: 10px auto; /* centers it horizontally */
+  box-sizing: border-box;
 }
 
 .footer-item .footer-dropdown {
@@ -1049,7 +1010,6 @@ body {
 
   .footer-links {
     flex-direction: column;
-    align-items: center;
     gap: 30px;
   }
 }
@@ -1235,6 +1195,9 @@ body {
     width: 100vw;
     padding: 1rem;
   }
+  .swiper {
+    display: block;
+  }
 
   .review-block {
     display: flex;
@@ -1404,6 +1367,24 @@ body {
   }
 }
 
+/* TODO: Featured products Section */
+@media (max-width: 1024px) {
+  .product-card {
+    width: calc(33.33% - 1rem); /* two per row with gap */
+  }
+  .featured-products {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 746px) {
+  .product-card {
+    width: calc(50% - 1.5rem);
+  }
+  .featured-products {
+    gap: 0.5rem;
+  }
+}
 /* TODO: Faq Section */
 @media (max-width: 600px) {
   .faq-question {
