@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Skyler Store</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ======================= HEADER ======================= -->
+    <header>
+      <h1><i class="fas fa-shopping-bag"></i> The Skyler Store</h1>
+
+      <!-- Search input -->
+      <div class="search-filter">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search products..."
+          oninput="searchProducts()"
+        />
+      </div>
+
+      <!-- Navigation buttons -->
+      <div class="header-buttons">
+        <button class="nav-btn" onclick="showHome()" id="home-btn">
+          <i class="fas fa-home"></i> Home
+        </button>
+        <button class="nav-btn" onclick="showAllProducts()" id="products-btn">
+          <i class="fas fa-box"></i> Products
+        </button>
+
+        <!-- Cart button with count badge -->
+        <button
+          class="nav-btn cart-wrapper"
+          onclick="toggleCart()"
+          id="cart-btn"
+        >
+          <i class="fas fa-shopping-cart"></i> Cart
+          <span id="cart-count" class="cart-count-badge">0</span>
+        </button>
+
+        <!-- Admin panel access button -->
+        <button
+          class="nav-btn"
+          id="admin-toggle-btn"
+          onclick="promptPassword()"
+        >
+          <i class="fas fa-cogs"></i> Admin Panel
+        </button>
+      </div>
+    </header>
+
+    <!-- ======================= HERO SLIDER ======================= -->
+    <section class="hero-slider slide-up">
+      <div class="slider-track">
+        <img src="./images/h1.jpg" alt="Hero 0" class="hero-img" />
+        <img src="./images/hero-1.jpg" alt="Hero 1" class="hero-img" />
+        <img src="./images/hero-2.jpg" alt="Hero 2" class="hero-img" />
+        <img src="./images/hero-3.jpg" alt="Hero 3" class="hero-img" />
+        <img src="./images/hero-4.jpg" alt="Hero 4" class="hero-img" />
+        <img src="./images/hero-5.jpg" alt="Hero 5" class="hero-img" />
+        <img src="./images/hero-6.jpg" alt="Hero 6" class="hero-img" />
+        <img src="./images/hero-7.jpg" alt="Hero 7" class="hero-img" />
+      </div>
+    </section>
+
+    <!-- ======================= FEATURED PRODUCTS ======================= -->
+    <div id="highlighted-products">
+      <section class="hottest-picks fade-in">
+        <h2>| Hottest Picks |</h2>
+        <div id="hottest-picks" class="product-row"></div>
+      </section>
+
+      <section class="carousel slide-up">
+        <h2>| Luxury Collection |</h2>
+        <div class="carousel-container">
+          <button class="carousel-btn left-btn">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="luxury-carousel" id="luxury-carousel"></div>
+          <button class="carousel-btn right-btn">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <!-- ======================= ALL PRODUCTS ======================= -->
+    <section class="all-products slide-up">
+      <h2 style="text-align: center">| All Products |</h2>
+    </section>
+    <main id="product-list" class="slide-up"></main>
+
+    <!-- ======================= CART PANEL ======================= -->
+    <div class="cart" id="cart-section" style="display: none">
+      <h2><i class="fas fa-shopping-cart"></i> Your Cart</h2>
+      <div id="cart-items"></div>
+      <button onclick="clearCart()" class="clear-cart-btn">
+        🗑️ Clear Cart
+      </button>
+
+      <button class="button-style" onclick="checkout()">Checkout</button>
+    </div>
+
+    <!-- ======================= ADMIN PANEL ======================= -->
+    <div class="admin-panel" id="admin-panel" style="display: none">
+      <h2><i class="fas fa-cogs"></i> Admin Panel</h2>
+
+      <form id="admin-form">
+        <input type="text" id="name" placeholder="Product Name" required />
+        <input type="number" id="price" placeholder="Price" required />
+        <input
+          type="text"
+          id="rating"
+          placeholder="Rating (e.g. 4.5/5)"
+          required
+        />
+
+        <!-- Product variant fields -->
+        <div id="variant-container">
+          <div class="variant-input">
+            <input
+              type="text"
+              placeholder="Variant Color"
+              class="variant-color"
+              required
+            />
+            <input
+              type="url"
+              placeholder="Image URL"
+              class="variant-url"
+              required
+            />
+          </div>
+        </div>
+
+        <button type="button" onclick="addVariantField()">
+          ➕ Add Variant
+        </button>
+        <button type="submit">Add Product</button>
+      </form>
+    </div>
+
+    <!-- ======================= PASSWORD POPUP ======================= -->
+    <div id="password-popup" class="popup-overlay" style="display: none">
+      <div class="popup-box">
+        <h3>Enter Admin Password</h3>
+        <p>password: admin123</p>
+        <input type="password" id="admin-password" placeholder="Password" />
+        <button class="button-style" onclick="checkPassword()">Submit</button>
+        <button class="button-style" onclick="closePasswordPopup()">
+          Cancel
+        </button>
+      </div>
+    </div>
+
+    <!-- ======================= FOOTER ======================= -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <p>&copy; 2025 Skyler Store. All rights reserved.</p>
+        <div class="socials">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ======================= GENERAL POPUP ======================= -->
+    <div id="custom-popup" class="popup-overlay">
+      <div class="popup-box">
+        <p id="popup-message">This is a popup</p>
+        <button onclick="closePopup()" class="popup-close-btn">Close</button>
+      </div>
+    </div>
+
+    <!-- ======================= ADMIN AUTH SCRIPT ======================= -->
+    <script>
+      const ADMIN_PASS = "admin123"; // set your password here
+
+      function promptPassword() {
+        document.getElementById("password-popup").style.display = "flex";
+      }
+
+      function checkPassword() {
+        const pass = document.getElementById("admin-password").value;
+        if (pass === ADMIN_PASS) {
+          closePasswordPopup();
+          toggleAdmin();
+        } else {
+          alert("Incorrect password!");
+        }
+      }
+
+      function closePasswordPopup() {
+        document.getElementById("password-popup").style.display = "none";
+        document.getElementById("admin-password").value = "";
+      }
+    </script>
+
+    <!-- ======================= MAIN SCRIPT ======================= -->
+    <script src="main.js"></script>
+  </body>
+</html>

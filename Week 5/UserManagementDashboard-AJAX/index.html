@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Management - AJAX</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="light">
+    <div class="dashboard">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2>Smart</h2>
+        <nav>
+          <ul>
+            <li class="active">Dashboard</li>
+            <li>Lessons</li>
+            <li>Schedule</li>
+            <li>Materials</li>
+            <li>Forum</li>
+            <li>Assessments</li>
+            <li>Settings</li>
+          </ul>
+        </nav>
+        <button class="logout">Log Out</button>
+      </aside>
+
+      <!-- Main Area -->
+      <div class="main">
+        <!-- Top Bar -->
+        <header class="topbar">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="🔍 Search users..."
+          />
+
+          <div class="actions">
+            <button id="toggleTheme">🌗</button>
+            <span class="profile">Grace 👩🏻‍💻</span>
+          </div>
+        </header>
+
+        <!-- Stats Area with Calendar -->
+        <section class="stats">
+          <!-- Info Cards Section -->
+          <div class="info-cards">
+            <div class="card">
+              <h3>👨‍🏫 Mentors Linked</h3>
+              <p><span class="badge">6 Active</span></p>
+            </div>
+            <div class="card">
+              <h3>📊 Programming Score</h3>
+              <p><span class="highlight">95.4%</span> this semester</p>
+            </div>
+            <div class="card">
+              <h3>📅 Upcoming Events</h3>
+              <p><span class="badge">2 Scheduled</span></p>
+            </div>
+            <div class="card">
+              <h3>📚 Total Courses</h3>
+              <p><span class="badge">8 Enrolled</span></p>
+            </div>
+            <div class="card">
+              <h3>🚀 Goal Progress</h3>
+              <p><span class="highlight">80%</span> Complete</p>
+            </div>
+          </div>
+
+          <!-- Calendar Section -->
+          <div class="card calendar-container">
+            <div class="calendar-header">
+              <button onclick="prevMonth()">&#8249;</button>
+              <span id="monthYear"></span>
+              <button onclick="nextMonth()">&#8250;</button>
+            </div>
+            <div class="calendar-grid" id="calendarGrid"></div>
+          </div>
+        </section>
+
+        <!-- Users + CRUD -->
+        <section class="user-management">
+          <div class="user-header">
+            <h2>Users</h2>
+            <button id="addUserBtn">➕ Add User</button>
+          </div>
+          <div id="userList"></div>
+          <div class="pagination">
+            <button id="prevPage">⬅️ Previous</button>
+            <span id="currentPageInfo">Page 1</span>
+            <button id="nextPage">➡️ Next</button>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="userModal" class="modal hidden">
+      <form id="userForm">
+        <h2 id="modalTitle">Add User</h2>
+        <input type="text" id="name" placeholder="Name" required />
+        <input type="text" id="job" placeholder="Job" required />
+        <input type="hidden" id="userId" />
+        <div class="modal-actions">
+          <button type="submit">Save</button>
+          <button type="button" id="cancelBtn">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- 🔔 Toast Container -->
+    <div id="toast" class="toast">Action Successful!</div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
