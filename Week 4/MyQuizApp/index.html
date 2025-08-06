@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Quiz App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header
+      style="
+        margin-bottom: 100px;
+        margin-top: 10px;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div class="dark-toggle" onclick="toggleDarkMode()">🌗</div>
+      <div class="mute-toggle" onclick="toggleMute()">🔊</div>
+
+      <div
+        style="
+          position: absolute;
+          top: 10px;
+          left: 20px;
+          font-weight: bold;
+          font-size: 20px;
+        "
+      >
+        🧠 QuizMaster
+      </div>
+    </header>
+    <div class="container" id="start-screen">
+      <h1>Welcome to Quiz Master 🎓</h1>
+      <p>🧠 8 questions randomly picked from Easy, Medium, Hard levels.</p>
+      <p>
+        ⏳ You have 60 seconds. Answer all correctly for a confetti surprise!
+      </p>
+      <button onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <div class="container hidden" id="quiz-container">
+      <div id="timer">Time Left: 60s</div>
+      <div id="score">Score: 0</div>
+      <div id="question-counter">Question 1 of 10</div>
+      <div id="progress-bar-wrapper"><div id="progress-bar"></div></div>
+
+      <div class="question-card" id="question-container"></div>
+      <div class="options" id="options-container"></div>
+
+      <button onclick="nextQuestion()">Next</button>
+      <button onclick="confirmRestart()">🔁 Restart</button>
+    </div>
+
+    <div class="container hidden" id="result-screen">
+      <h2>Quiz Completed!</h2>
+      <p id="final-score"></p>
+      <p id="final-time"></p>
+      <canvas id="confetti"></canvas>
+      <button onclick="startQuiz()">Try Again</button>
+    </div>
+
+    <audio
+      id="correct-sound"
+      src="https://www.soundjay.com/buttons/sounds/button-4.mp3"
+    ></audio>
+    <audio
+      id="wrong-sound"
+      src="https://www.soundjay.com/buttons/sounds/button-10.mp3"
+    ></audio>
+
+    <script src="./script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  </body>
+</html>
